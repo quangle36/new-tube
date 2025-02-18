@@ -7,6 +7,7 @@ import {
 	SidebarMenuItem,
 	SidebarMenu,
 } from '@/components/ui/sidebar';
+import { useAuth, useClerk } from '@clerk/nextjs';
 import {
 	FlameIcon,
 	HistoryIcon,
@@ -38,6 +39,8 @@ const items = [
 ];
 
 const PersonalSection = () => {
+	const { userId, isSignedIn } = useAuth();
+	const clerk = useClerk();
 	return (
 		<SidebarGroup>
 			<SidebarGroupContent>

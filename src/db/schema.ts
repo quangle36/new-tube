@@ -17,5 +17,5 @@ export const users = pgTable(
 		createdAt: timestamp('created_at').defaultNow().notNull(),
 		updatedAt: timestamp('updated_at').defaultNow().notNull(),
 	},
-	(t) => [uniqueIndex()]
+	(t) => [uniqueIndex("clerk_id_idx").on(t.clerkId)]
 );
